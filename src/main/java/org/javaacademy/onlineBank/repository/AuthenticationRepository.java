@@ -14,9 +14,6 @@ public class AuthenticationRepository {
     }
 
     public boolean authentication(String id, String pinCode) {
-        if (data.containsKey(id) && data.containsValue(pinCode)) {
-            return true;
-        }
-        return false;
+        return data.containsKey(id) && data.containsValue(pinCode);
     }
 }

@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.javaacademy.onlineBank.entity.User;
 import org.javaacademy.onlineBank.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Stream;

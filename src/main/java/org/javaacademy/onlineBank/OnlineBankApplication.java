@@ -1,6 +1,5 @@
 package org.javaacademy.onlineBank;
 
-import org.javaacademy.onlineBank.entity.Account;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
