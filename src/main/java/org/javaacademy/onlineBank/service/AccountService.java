@@ -1,6 +1,6 @@
 package org.javaacademy.onlineBank.service;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.javaacademy.onlineBank.entity.Account;
 import org.javaacademy.onlineBank.entity.User;
 import org.javaacademy.onlineBank.repository.AccountRepository;
@@ -10,7 +10,7 @@ import java.math.RoundingMode;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AccountService {
     private static int ACCOUNT_NUMBER = 0;
     private AccountRepository accountRepository;

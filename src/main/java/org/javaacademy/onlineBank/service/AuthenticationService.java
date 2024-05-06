@@ -1,11 +1,11 @@
 package org.javaacademy.onlineBank.service;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.javaacademy.onlineBank.repository.AuthenticationRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AuthenticationService {
     private final AuthenticationRepository authenticationRepository;
 

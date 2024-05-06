@@ -1,6 +1,6 @@
 package org.javaacademy.onlineBank.service;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.javaacademy.onlineBank.entity.User;
 import org.javaacademy.onlineBank.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserService {
     private static final String ONLINE = "online";
     private static final String TOKEN = "token";
