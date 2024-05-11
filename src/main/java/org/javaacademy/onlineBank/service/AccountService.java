@@ -1,10 +1,12 @@
 package org.javaacademy.onlineBank.service;
 
 import lombok.AllArgsConstructor;
+import org.javaacademy.onlineBank.dto.AccountDtoRs;
 import org.javaacademy.onlineBank.entity.Account;
 import org.javaacademy.onlineBank.entity.User;
 import org.javaacademy.onlineBank.repository.AccountRepository;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -37,8 +39,10 @@ public class AccountService {
         account.setBalance(newBalance);
     }
 
-    public List<Account> takeAllAccountsUser(User user) {
-        return accountRepository.takeAllAccountsUser(user);
+    public List<AccountDtoRs> takeAllAccountsUser(User user) {
+        return accountRepository.takeAllAccountsUser(user).stream()
+                .map(this::convertToAccountDtoRs)
+                .toList();
     }
 
     public BigDecimal takeBalance(String accountNumber) {
@@ -59,5 +63,10 @@ public class AccountService {
     private Account findAccount(String accountNumber) {
         return accountRepository.findAccountByNumber(accountNumber)
                 .orElseThrow(() -> new RuntimeException("Account %s is not exist".formatted(accountNumber)));
+    }
+
+    private AccountDtoRs convertToAccountDtoRs(Account account) {
+        return new AccountDtoRs(account.getAccountNumber(),
+                account.getOwner());
     }
 }

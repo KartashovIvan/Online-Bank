@@ -1,7 +1,7 @@
 package org.javaacademy.onlineBank.service;
 
 import lombok.AllArgsConstructor;
-import org.javaacademy.onlineBank.entity.Operation;
+import org.javaacademy.onlineBank.dto.OperationDtoRs;
 import org.javaacademy.onlineBank.entity.User;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -19,14 +19,14 @@ public class BankService {
 
     public void makePayment(String accountNumber, BigDecimal total, String description, String token) {
         User user = userService.findUserByToken(token);
-        if (accountService.checkOwner(user, accountNumber)) {
+        if (!accountService.checkOwner(user, accountNumber)) {
             throw new RuntimeException("User %s does not own the account %s".formatted(user.getFio(), accountNumber));
         }
         accountService.withdrawMoney(accountNumber, total);
         operationService.addOperation(accountNumber, WITHDRAWAL, total, description);
     }
 
-    public List<Operation> historyWithdraw(String token) {
+    public List<OperationDtoRs> historyWithdraw(String token) {
         User user = userService.findUserByToken(token);
         return operationService.getAllUserOperation(user).stream()
                 .filter(operation -> operation.getOperationType().equals(WITHDRAWAL))
