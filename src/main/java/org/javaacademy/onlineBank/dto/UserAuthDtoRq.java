@@ -1,12 +1,11 @@
 package org.javaacademy.onlineBank.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
+@AllArgsConstructor
 public class UserAuthDtoRq {
-    @NonNull
     private String telephoneNumber;
-    @NonNull
     private String pinCode;
 }

@@ -1,18 +1,14 @@
 package org.javaacademy.onlineBank.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
-
 import java.math.BigDecimal;
 
 @Data
+@AllArgsConstructor
 public class PaymentDtoRq {
-    @NonNull
     private String token;
-    @NonNull
     private String accountNumber;
-    @NonNull
     private BigDecimal total;
-    @NonNull
     private String description;
 }
