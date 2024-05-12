@@ -1,0 +1,6 @@
+logging:
+  appender: FILE
+  level:
+    root: info
+  file:
+    name: log/bankOnline.log
