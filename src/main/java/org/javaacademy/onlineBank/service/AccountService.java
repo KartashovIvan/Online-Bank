@@ -1,21 +1,20 @@
 package org.javaacademy.onlineBank.service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.javaacademy.onlineBank.dto.AccountDtoRs;
 import org.javaacademy.onlineBank.entity.Account;
 import org.javaacademy.onlineBank.entity.User;
 import org.javaacademy.onlineBank.repository.AccountRepository;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AccountService {
-    private static int ACCOUNT_NUMBER = 0;
-    private AccountRepository accountRepository;
+    private Integer accountNumber = 0;
+    private final AccountRepository accountRepository;
 
     public Account createAccount(User user) {
         String accountNumber = generateAccountNumber();
@@ -56,8 +55,8 @@ public class AccountService {
     }
 
     private String generateAccountNumber() {
-        ACCOUNT_NUMBER++;
-        return String.format("%06d", ACCOUNT_NUMBER);
+        accountNumber++;
+        return String.format("%06d", accountNumber);
     }
 
     private Account findAccount(String accountNumber) {
